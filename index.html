@@ -1,6 +1,6 @@
 <!doctype html>
-<!-- HUALONG FLIGHT V1.5 · 羊城晴空
-     Standalone edition based on HualongFlight V1.4. Touch pitch preference, covered campus gallery,
+<!-- HUALONG FLIGHT V1.5.1 · 羊城晴空
+     Standalone edition based on HualongFlight V1.5. Portrait pitch controls and Baidu-checked gallery,
      riverside test track, courtyard planting and simplified surrounding streets and buildings.
      The local play area loops over 20 km. Real shorelines extend 44 km to
      keep distant water and islands geographically aligned. Hydrography, land use and roads underpin shoreImage, coverImage, roadLines and
@@ -14,12 +14,12 @@
      https://www.eguangzhou.gov.cn/globalgzpastandpresence/content/post_31123.html
      CTF form/height: https://www.kpf.com/project/ctf-finance-centre
      IFC form: https://wilkinsoneyre.com/projects/guangzhou-international-finance-center
---><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><title>化龙飞行 V1.5 · 羊城晴空 / HUALONG FLIGHT</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23163850%22/%3E%3Cpath d=%22M16 3L20 17L29 24L18 22L16 29L14 22L3 24L12 17Z%22 fill=%22%23c5eff4%22/%3E%3C/svg%3E"><meta name="description" content="正午晴空中的化龙飞行。自由飞行与三波无人机空战挑战，支持手机触控与离线游玩。"><style>
+--><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><title>化龙飞行 V1.5.1 · 羊城晴空 / HUALONG FLIGHT</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23163850%22/%3E%3Cpath d=%22M16 3L20 17L29 24L18 22L16 29L14 22L3 24L12 17Z%22 fill=%22%23c5eff4%22/%3E%3C/svg%3E"><meta name="description" content="正午晴空中的化龙飞行。自由飞行与三波无人机空战挑战，支持手机触控与离线游玩。"><style>
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#221f34;color:#ffe9c5;font-family:'Noto Sans Mono',monospace}canvas{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;image-rendering:crisp-edges}#hud{pointer-events:none}#stage{position:absolute;inset:0;overflow:hidden;touch-action:none}#menu{position:absolute;inset:0;display:flex;align-items:center;padding:clamp(22px,7vw,110px);background:linear-gradient(90deg,#211c34ed 0%,#211c3494 40%,transparent 80%);z-index:2}#menu[hidden],#controls[hidden]{display:none}.panel{max-width:570px}.eyebrow{font-size:12px;letter-spacing:.23em;color:#f0ae93}h1{margin:24px 0 2px;font-size:clamp(44px,8vw,110px);line-height:1.12;letter-spacing:.07em;text-shadow:4px 4px #543e58}h2{font:clamp(20px,3.5vw,42px) Silkscreen,monospace;margin:4px 0 24px;letter-spacing:-.06em;color:#ffe4b2}.sub{font-size:13px;line-height:1.9;color:#efdac8;max-width:470px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}button{font:700 13px 'Noto Sans Mono',monospace;background:#f6cf98;color:#292337;border:0;padding:13px 18px;cursor:pointer;box-shadow:4px 4px #87566b}button:hover,button:focus-visible{background:#fff2d3;outline:2px solid #fff2d3;outline-offset:4px}button.secondary{color:#ffeacb;background:#382e45;border:1px solid #bd8c8c;box-shadow:3px 3px #221d32}button:disabled{opacity:.55;cursor:wait}.foot{margin-top:28px;font:10px Silkscreen,monospace;color:#d2a6a2;letter-spacing:.1em}#progress{height:6px;max-width:300px;background:#514357;margin-top:20px}#bar{height:100%;width:0;background:#f5cc93;transition:width .1s}#status{font-size:12px;color:#f0bfaa;margin-top:8px}#controls{position:absolute;z-index:4;left:50%;top:50%;transform:translate(-50%,-50%);width:min(90%,540px);padding:25px;background:#242237f5;border:2px solid #c0a0a2;box-shadow:8px 8px #151325}#controls p{font-size:13px;line-height:1.9;color:#f1d6bc}#controls h3{font:20px Silkscreen,monospace;margin:0;color:#f5cb93}#tiny{position:absolute;right:12px;bottom:10px;color:#eed5b5;font:10px Silkscreen,monospace;z-index:1;pointer-events:none;opacity:.7}@media(max-width:600px){.sub{font-size:12px}#menu{padding:24px}h1{font-size:50px}}
 
 #mobile{display:none;position:absolute;inset:0;z-index:3;pointer-events:none;touch-action:none;user-select:none;-webkit-user-select:none}body.touch.playing #mobile{display:block}body.touch.playing #tiny{display:none}.touchTop{position:absolute;top:max(8px,env(safe-area-inset-top));left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));display:flex;gap:7px;justify-content:center;pointer-events:none}.touchTop button,.flightActions button{pointer-events:auto;touch-action:none;background:#2b2c40db;color:#ffe5bb;border:1px solid #e5c7a0;box-shadow:2px 2px #252337;padding:0;min-height:40px;font-size:11px}.touchTop button{min-width:47px;padding:0 7px}.touchTop button:active,.flightActions button:active,.flightActions button.held{background:#f5c58e;color:#2e2939;transform:translate(1px,1px)}#stick{position:absolute;pointer-events:auto;touch-action:none;left:max(18px,calc(env(safe-area-inset-left) + 14px));bottom:max(18px,calc(env(safe-area-inset-bottom) + 12px));width:clamp(102px,25vh,142px);aspect-ratio:1;border:2px solid #ddc6a4aa;background:#292d404f;border-radius:50%;box-shadow:inset 0 0 0 10px #27273730;display:grid;place-items:center}.stickCross{position:absolute;inset:14%;background:linear-gradient(90deg,transparent 49%,#e2c8a251 49%,#e2c8a251 51%,transparent 51%),linear-gradient(0deg,transparent 49%,#e2c8a251 49%,#e2c8a251 51%,transparent 51%);pointer-events:none}.stickKnob{width:38%;aspect-ratio:1;border:2px solid #f4d5aa;background:#6b6a796e;border-radius:50%;pointer-events:none;box-shadow:0 0 0 3px #25263870}.stickLabel{position:absolute;bottom:-14px;font-size:9px;color:#ffe2b6;pointer-events:none;text-shadow:1px 1px #272337}.flightActions{position:absolute;right:max(16px,calc(env(safe-area-inset-right) + 10px));bottom:max(18px,calc(env(safe-area-inset-bottom) + 12px));display:grid;grid-template-columns:repeat(2,54px);gap:8px;pointer-events:none}.flightActions button{height:47px}.flightActions #boostBtn{grid-row:span 2;height:auto;background:#774b46d9;border-color:#f2b078;color:#ffe1b1}.flightActions #boostBtn.held{background:#f3bd83;color:#292337}.flightActions .small{height:35px}.portraitHint{display:none;position:absolute;bottom:calc(env(safe-area-inset-bottom) + 4px);left:50%;transform:translateX(-50%);font-size:10px;white-space:nowrap;color:#ffdfb0;text-shadow:1px 1px #272337}body.touch .desktopGuide{display:none}body:not(.touch) .touchGuide{display:none}body.touch .sub{font-size:12px}body.touch #menu{padding:max(16px,env(safe-area-inset-top)) max(25px,calc(env(safe-area-inset-left) + 16px));overflow:auto}body.touch h1{font-size:clamp(30px,9vw,60px);margin:8px 0 2px}body.touch h2{font-size:clamp(17px,4vw,28px);margin:2px 0 8px}body.touch .actions{margin-top:12px}body.touch .foot{margin-top:12px}body.touch #progress{margin-top:10px}body.touch #controls{max-height:90%;overflow:auto}body.touch #controls p{font-size:12px;line-height:1.65}@media(orientation:portrait){body.touch .portraitHint{display:block}.touchTop{justify-content:center;gap:4px}.touchTop button{min-width:40px;font-size:10px}#stick{bottom:max(32px,calc(env(safe-area-inset-bottom) + 25px))}.flightActions{bottom:max(32px,calc(env(safe-area-inset-bottom) + 25px))}}@media(orientation:landscape) and (max-height:430px){body.touch h1{font-size:40px}body.touch #menu .sub{line-height:1.5}body.touch #menu .foot{margin-top:7px}.touchTop button{min-height:33px}}
 
-/* V1.5 daylight interface, with high-contrast controls over a bright scene. */
+/* V1.5.1 daylight interface, with high-contrast controls over a bright scene. */
 html,body{background:#123149;color:#edf8ff;font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace}
 #menu{background:linear-gradient(90deg,#102c45ed 0%,#153b54a8 43%,transparent 85%)}
 .eyebrow,.foot,#status{color:#a6dae9}h1{text-shadow:4px 4px #174d67}h2{color:#e3f6ff}
@@ -59,12 +59,18 @@ body.inCombat #fireBtn.held{background:#adf2df;color:#163d4a}
 body.touch #battleHUD{top:calc(max(8px,env(safe-area-inset-top)) + 50px)}
 @media(max-height:460px) and (orientation:landscape){body.touch #battleHUD{top:calc(max(8px,env(safe-area-inset-top)) + 37px)}.battleMetric{padding:4px 9px}.resultPanel{padding:16px 22px}.resultHeading h3{margin-bottom:10px}}
 @media(max-width:540px){#battleHUD{max-width:96vw}.battleMetric{padding:5px 7px;gap:4px}.battleMetric strong{font-size:13px}.battleMetric small,.battleMetric span{font-size:10px}.actions{gap:8px}.actions button{padding:11px}.resultStats{gap:20px}}
-.touchTop #pitchToggle{white-space:nowrap}
-.touchTop #pitchToggle[aria-pressed="true"]{background:#b8e6e6;color:#10384c;border-color:#e2ffff}
+#pitchToggle{white-space:nowrap;touch-action:manipulation;transform:none}
+#pitchToggle[aria-pressed="true"]{background:#b8e6e6;color:#10384c;border-color:#e2ffff}
+#pitchHint{display:none}
+@media(orientation:portrait){
+  #flightActions #pitchToggle{grid-area:4 / 1 / 5 / 3;display:grid;align-content:center;justify-items:center;gap:2px;height:48px;min-width:108px;line-height:1.2}
+  #pitchMode{font-size:12px;font-weight:700}
+  #pitchHint{display:block;font:10px/1.2 system-ui,sans-serif;opacity:.86}
+}
 #upBtn{grid-area:3 / 1}#downBtn{grid-area:3 / 2}
 body.pitchReversed #upBtn{grid-column:2}body.pitchReversed #downBtn{grid-column:1}
 @media(max-width:360px){.touchTop{left:max(5px,env(safe-area-inset-left));right:max(5px,env(safe-area-inset-right));gap:3px}.touchTop button{min-width:34px;padding-inline:4px}}
-</style></head><body><div id="stage" tabindex="-1"><canvas id="world"></canvas><canvas id="hud"></canvas><div id="tiny">HL-01 // CLEAR SKY 12:00</div></div><div id="mobile" aria-label="触屏飞行控制"><div class="touchTop"><button id="viewBtn">视角</button><button id="pitchToggle" type="button" aria-pressed="false">俯仰：标准</button><button id="pauseBtn">暂停</button><button id="qualityBtn">画质:AUTO</button><button id="soundBtn">声音</button><button id="homeBtn">返回</button></div><div id="stick" aria-label="虚拟飞行摇杆"><div class="stickCross"></div><div id="knob" class="stickKnob"></div><div class="stickLabel" id="stickLabel">上推爬升</div></div><div class="flightActions"><button id="boostBtn">加力<br>BOOST</button><button id="rollBtn">桶滚</button><button id="fireBtn">导弹</button><button id="upBtn" class="small">爬升</button><button id="downBtn" class="small">下降</button></div><div class="portraitHint">横屏飞行体验更佳</div></div><section id="battleHUD" aria-label="空战状态" hidden>
+</style></head><body><div id="stage" tabindex="-1"><canvas id="world"></canvas><canvas id="hud"></canvas><div id="tiny">HL-01 // CLEAR SKY 12:00</div></div><div id="mobile" aria-label="触屏飞行控制"><div class="touchTop" id="touchToolbar"><button id="viewBtn">视角</button><button id="pitchToggle" type="button" aria-pressed="false"><span id="pitchMode">俯仰：标准</span><small id="pitchHint">上推爬升</small></button><button id="pauseBtn">暂停</button><button id="qualityBtn">画质:AUTO</button><button id="soundBtn">声音</button><button id="homeBtn">返回</button></div><div id="stick" aria-label="虚拟飞行摇杆"><div class="stickCross"></div><div id="knob" class="stickKnob"></div><div class="stickLabel" id="stickLabel" aria-live="polite">上推爬升</div></div><div class="flightActions" id="flightActions"><button id="boostBtn">加力<br>BOOST</button><button id="rollBtn">桶滚</button><button id="fireBtn">导弹</button><button id="upBtn" class="small">爬升</button><button id="downBtn" class="small">下降</button></div><div class="portraitHint">横屏飞行体验更佳</div></div><section id="battleHUD" aria-label="空战状态" hidden>
   <div class="battleStrip">
     <div class="battleMetric"><span>波次</span><strong id="waveValue">1 / 3</strong><small id="remainingValue">剩 2 架</small></div>
     <div class="battleMetric shieldMetric"><span>护盾</span><div id="shieldPips" role="img" aria-label="护盾 4 / 4"><i></i><i></i><i></i><i></i></div></div>
@@ -84,7 +90,7 @@ body.pitchReversed #upBtn{grid-column:2}body.pitchReversed #downBtn{grid-column:
     <div class="resultActions"><button id="retryBattle">再战一次</button><button id="leaveBattle" class="secondary">返回菜单</button></div>
   </div>
 </section>
-<div id="menu"><div class="panel"><div class="eyebrow">GUANGZHOU / HUALONG · 23° N</div><h1>化龙飞行</h1><h2>HUALONG FLIGHT</h2><div class="sub">正午的化龙上空，西北偏西可见广州天际线。<br>参加三波无人机空战挑战，或沿珠江自由飞行。</div><div id="progress"><div id="bar"></div></div><div id="status">正在初始化飞行世界…</div><div class="actions"><button id="startBattle" disabled>空战挑战 / COMBAT</button><button id="start" class="secondary" disabled>自由飞行 / FLY</button><button id="help" class="secondary">操作指南</button></div><div class="foot">WEBGL2 · V1.5 · 12:00 · OFFLINE<br><span class="credit">河岸、道路与用地 © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap 贡献者</a> · OpenFreeMap / OpenMapTiles</span></div></div></div><div id="controls" hidden><h3>FLIGHT MANUAL</h3><p class="desktopGuide">移动鼠标：转向 / 爬升 / 俯冲<br>俯视模式：朝光标方向飞行，W / S 调节速度<br>左键短按：桶滚　长按：加力燃烧室<br>空战中长按 F 或鼠标右键连发脉冲，Shift 桶滚。<br>自由飞行中，右键或 F 发射特效导弹。<br>C / 空格：切换视角　↑ / ↓：爬升 / 下降<br>H：HUD　M：声音　P：暂停　R：重新开始当前模式<br>Esc：返回菜单。自由飞行闲置 15 秒后自动巡航。<br>触屏请使用虚拟摇杆及独立按钮。</p><p class="touchGuide">建议横屏飞行。摇杆左右转向，标准模式上推爬升、下拉下降。<br>轻点顶部「俯仰」切换反向：下拉爬升、上推下降，右侧升降键也会互换位置。俯视时摇杆指向航向，上方始终为北。<br>空战中长按「脉冲」连续开火，点击「桶滚」闪避。<br>长按加力、爬升或下降。自由飞行可发射特效导弹。<br>上方按钮可切换视角和画质、暂停、开关声音或返回菜单。<br>画质 AUTO 将根据帧率自动调节，亦可手动选择 LOW / HIGH。<br>松开摇杆自动回中。自由飞行闲置 15 秒后自动巡航。</p><p>空战中将机头转向橙色无人机，标框变青时开火。护盾耗尽将结束本轮，每通过一波可恢复一格护盾。</p><p class="geoNote">飞行范围为化龙基地周边约 20 × 20 公里，越过边缘即可循环飞行。<br>北向上俯视时，七沙涌在园区西南侧，珠江黄埔航道在东侧向北绕行。广州塔与珠江新城是远景。<br>园区两翼由架空廊桥相连，沿七沙涌可见试验跑道。周边街区按用地分布作了简化。<br>手机请使用支持 WebGL2 的浏览器打开游戏。</p><button id="closeHelp">返回 / BACK</button></div>
+<div id="menu"><div class="panel"><div class="eyebrow">GUANGZHOU / HUALONG · 23° N</div><h1>化龙飞行</h1><h2>HUALONG FLIGHT</h2><div class="sub">正午的化龙上空，西北偏西可见广州天际线。<br>参加三波无人机空战挑战，或沿珠江自由飞行。</div><div id="progress"><div id="bar"></div></div><div id="status">正在初始化飞行世界…</div><div class="actions"><button id="startBattle" disabled>空战挑战 / COMBAT</button><button id="start" class="secondary" disabled>自由飞行 / FLY</button><button id="help" class="secondary">操作指南</button></div><div class="foot">WEBGL2 · V1.5.1 · 12:00 · OFFLINE<br><span class="credit">河岸、道路与用地 © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap 贡献者</a> · OpenFreeMap / OpenMapTiles</span></div></div></div><div id="controls" hidden><h3>FLIGHT MANUAL</h3><p class="desktopGuide">移动鼠标：转向 / 爬升 / 俯冲<br>俯视模式：朝光标方向飞行，W / S 调节速度<br>左键短按：桶滚　长按：加力燃烧室<br>空战中长按 F 或鼠标右键连发脉冲，Shift 桶滚。<br>自由飞行中，右键或 F 发射特效导弹。<br>C / 空格：切换视角　↑ / ↓：爬升 / 下降<br>H：HUD　M：声音　P：暂停　R：重新开始当前模式<br>Esc：返回菜单。自由飞行闲置 15 秒后自动巡航。<br>触屏请使用虚拟摇杆及独立按钮。</p><p class="touchGuide">建议横屏飞行。摇杆左右转向，标准模式上推爬升、下拉下降。<br>点「俯仰」切换升降方向。竖屏时开关在右下升降键下方，横屏时在顶部。反向时下拉爬升、上推下降，右侧升降键也会换位。俯视时摇杆指向航向，上方始终为北。<br>空战中长按「脉冲」连续开火，点击「桶滚」闪避。<br>长按加力、爬升或下降。自由飞行可发射特效导弹。<br>上方按钮可切换视角和画质、暂停、开关声音或返回菜单。<br>画质 AUTO 将根据帧率自动调节，亦可手动选择 LOW / HIGH。<br>松开摇杆自动回中。自由飞行闲置 15 秒后自动巡航。</p><p>空战中将机头转向橙色无人机，标框变青时开火。护盾耗尽将结束本轮，每通过一波可恢复一格护盾。</p><p class="geoNote">飞行范围为化龙基地周边约 20 × 20 公里，越过边缘即可循环飞行。<br>北向上俯视时，七沙涌在园区西南侧，珠江黄埔航道在东侧向北绕行。广州塔与珠江新城是远景。<br>主楼东北侧的廊桥跨过园区道路，接到对面楼的裙房。试验跑道沿七沙涌布置。周边街区按用地分布作了简化。<br>手机请使用支持 WebGL2 的浏览器打开游戏。</p><button id="closeHelp">返回 / BACK</button></div>
 <script>
 'use strict';
 const $=id=>document.getElementById(id), canvas=$('world'), hud=$('hud'), ctx=hud.getContext('2d'), stage=$('stage');
@@ -295,7 +301,7 @@ function height(x,z){
 function builder(){let v=[];const tri=(a,b,c,h)=>{let n=norm(cross(sub(b,a),sub(c,a))),col=typeof h==='string'?color(h):h;for(let p of [a,b,c])v.push(...p,...n,...col)};const quad=(a,b,c,d,h)=>{tri(a,b,c,h);tri(a,c,d,h)};const box=(x,y,z,w,h,d,co,roof=co)=>{let a=[x-w/2,y,z-d/2],b=[x+w/2,y,z-d/2],c=[x+w/2,y,z+d/2],e=[x-w/2,y,z+d/2],A=add(a,[0,h,0]),B=add(b,[0,h,0]),C=add(c,[0,h,0]),E=add(e,[0,h,0]);quad(a,b,c,e,co);quad(A,E,C,B,roof);quad(a,A,B,b,co);quad(b,B,C,c,co);quad(c,C,E,e,co);quad(e,E,A,a,co)};return {v,tri,quad,box};}
 function mesh(data,usage=gl.STATIC_DRAW){let vao=gl.createVertexArray(),buf=gl.createBuffer();gl.bindVertexArray(vao);gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(data),usage);for(let i=0;i<3;i++){gl.enableVertexAttribArray(i);gl.vertexAttribPointer(i,3,gl.FLOAT,false,36,i*12)}gl.bindVertexArray(null);return {vao,buf,count:data.length/9};}
 const buildings=[];
-// The bridge and trial loop follow the publicly illustrated campus footprint.
+// The trial loop follows the public campus plan. The newer gallery uses Baidu satellite imagery.
 // Cross-sections, facade finishes and individual neighborhood buildings are visual approximations.
 // https://sthjj.gz.gov.cn/attachment/7/7099/7099175/8230019.pdf (printed maps 2–3)
 // https://www.gacgroup.com/cn/news/detail?baseid=13586
@@ -329,7 +335,6 @@ function indexBuildings(){
   }
 }
 function addCourtPaths(art,strip){
-  strip([[-2.78,1.49],[-.84,1.28]],.32,'b8bbab',.015);
   function walk(a,b,c,d){
     const points=[];
     for(let i=0;i<=20;i++){
@@ -361,30 +366,50 @@ function addCourtyardAnnexes(art,x,z,heading,wingWidth,offsets){
   }
 }
 
+// The two facade joints were traced on Baidu satellite imagery and converted from
+// Baidu Mercator (BD-09) to the game's WGS84 east/north plane. One unit is 100 m.
+// Baidu place 56d009b5d14e23e46c3e1baf. Heights and materials follow the exterior photograph.
+// https://www.gacgroup.com/en-eu/news/article/11-11
+const galleryWest=[-.656,1.855],galleryEast=[.294,2.375];
+function galleryAvenuePoint(along,across){
+  const x=(galleryWest[0]+galleryEast[0])/2,z=(galleryWest[1]+galleryEast[1])/2;
+  return [x+.478*along+.878*across,z-.878*along+.478*across];
+}
 function addGallery(art){
-  const a=[-2.78,1.49],b=[-.84,1.28],x=(a[0]+b[0])/2,z=(a[1]+b[1])/2;
-  const length=Math.hypot(b[0]-a[0],b[1]-a[1]),c=(b[0]-a[0])/length,s=(b[1]-a[1])/length;
-  const point=localFrame(x,z,c,s),ground=height(x,z),deck=ground+.105,roof=deck+.074,width=.185;
+  const [ax,az]=galleryWest,[bx,bz]=galleryEast,x=(ax+bx)/2,z=(az+bz)/2;
+  const span=Math.hypot(bx-ax,bz-az),c=(bx-ax)/span,s=(bz-az)/span;
+  const point=localFrame(x,z,c,s),ground=height(x,z),deck=ground+.092,roof=deck+.054;
+  const length=span+.074,width=.069;
   const part=(u,v,l,w,lo,hi,wall,cap)=>prism(art,point,u,v,l,w,lo,hi,wall,cap);
-  for(const u of [-.48,.48]){
-    part(u,0,.056,.11,ground-.012,deck,'bac0b8');
-    part(u,0,.09,width*.98,deck-.023,deck,'cdd1c6');
+  // The minor overlap at each facade is inside its podium. The open middle crosses the avenue.
+  for(const t of [.22,.76]){
+    const u=(t-.5)*span;
+    part(u,0,.030,.046,ground-.008,deck,'c1c8bf');
+    part(u,0,.046,width,deck-.012,deck,'d8dbd2');
   }
-  part(0,0,length,width+.022,deck,deck+.014,'d4d6c9','dee2d6');
-  part(0,0,length,width-.011,deck+.014,roof-.013,'457485','789ba6');
-  part(0,0,length+.018,width+.044,roof-.013,roof,'dadace','e3e1d5');
-  // Shallow blue roof lights leave a light fascia and an uninterrupted eave.
-  for(let i=-3;i<=3;i++){
-    const u=i*length/8;
-    part(u,0,length/8-.018,.076,roof,roof+.005,'8da7a9','92b0b5');
+  part(0,0,length,width+.010,deck,deck+.009,'d6d9ce');
+  part(0,0,length,width,deck+.009,roof-.009,'447384','82a4ab');
+  part(0,0,length,width+.014,roof-.009,roof,'d4d8ce','c9d1c8');
+  for(let i=1;i<9;i++){
+    const u=(i/9-.5)*span;
+    for(const side of [-1,1])part(u,side*width/2,.009,.006,deck+.009,roof-.009,'c6d4cf');
   }
-  for(let i=-4;i<=4;i++){
-    const u=i*length/9;
-    for(const v of [-1,1]){
-      part(u,v*width/2,.014,.012,deck+.013,roof-.012,'dae0da');
-    }
+  buildings.push([x,z,length,width+.014,roof,c,s,true]);
+}
+function addGalleryPodium(art){
+  // The receiving podium runs along the northeast edge of the avenue. Its long facade
+  // turns southeast at the landing and its short return joins the existing research block.
+  const [x,z]=galleryEast,far=[1.44,.27],span=Math.hypot(far[0]-x,far[1]-z);
+  const c=(far[0]-x)/span,s=(far[1]-z)/span,p=localFrame(x,z,c,s),ground=height(x,z),roof=ground+.159;
+  function wing(u,v,l,w){
+    prism(art,p,u,v,l,w,ground-.01,ground+.048,'d1d0c3');
+    prism(art,p,u,v,l,w,ground+.048,roof-.014,'5b7b87');
+    prism(art,p,u,v,l+.012,w+.012,roof-.014,roof,'c6c9be','a8b2ae');
+    const center=p(u,0,v);
+    buildings.push([center[0],center[2],l+.012,w+.012,roof,c,s]);
   }
-  buildings.push([x,z,length+.018,width+.044,roof+.005,c,s,true]);
+  wing(span/2-.022,.14,span+.044,.28);
+  wing(.053,.484,.116,.432);
 }
 // A rounded closed centerline keeps the shoulders, paint and decorative cars on the same curves.
 function makeTestLoop(){
@@ -569,6 +594,7 @@ function makeWorld(){
   building(-3.56,1.22,3.65,.61,61,4,.046);
   building(-.37,.55,3.85,.79,153,5,.047,.10);
   building(-1.44,2.02,.95,.56,61,3,.044);
+  addGalleryPodium(art);
   addGallery(art);
   addCourtyardAnnexes(art,-3.56,1.22,61,.61,[[-1.08,.37,.26],[-.40,.43,.32]]);
   addCourtyardAnnexes(art,-.37,.55,153,.79,[[.03,.35,.33],[.68,.40,.37],[1.30,.36,.34]]);
@@ -580,6 +606,17 @@ function makeWorld(){
   building(2.13,1.35,1.52,.68,63,3,.045);
   building(2.55,.45,1.48,.73,63,3,.045);
   building(2.99,-.44,1.47,.71,63,3,.045);
+  // The mapped lane centerlines stop just short of the gallery. Continue them
+  // through the landscaped avenue visible below the deck in the north-up image.
+  strip([galleryAvenuePoint(-.92,0),galleryAvenuePoint(2.01,0)],.78,'a9ac9a',.010);
+  for(const across of [-.18,.18]){
+    for(const ends of [[-.65,-.12],[.12,1.57]]){
+      strip(ends.map(along=>galleryAvenuePoint(along,across)),.111,'829a74',.014);
+    }
+  }
+  const avenue=[[-.62,2.82],[-.205,2.07],[1.355,-.31]];
+  strip(avenue,.118,'b8b8aa',.022);
+  strip(avenue,.098,'505e63',.025);
   for(const [metres,points] of roadLines){
     strip(points.map(([x,z])=>[x/100,z/100]),metres/100,metres>=15?'646e71':'79817e',.015);
   }
@@ -621,6 +658,11 @@ function makeWorld(){
     [-2.42,.52],[-2.26,.40],[-2.11,.34],[-1.93,.45],[-1.80,.57],[-2.70,-.21],[-2.87,-.12],
     [-2.25,-.14],[-2.11,.02],[-1.90,-.31],[-1.77,-.11],[-1.68,.14],[-2.13,.93],[-1.68,1.02]]){
     tree(x,z,.085+random()*.031,true);
+  }
+  for(const across of [-.18,.18]){
+    for(const along of [-.54,-.28,.26,.53,.81,1.09,1.38]){
+      const [x,z]=galleryAvenuePoint(along,across);tree(x,z,.065,true);
+    }
   }
   for(let i=0;i<510;i++){const x=(random()-.5)*79,z=(random()-.5)*79;if(x<4&&x>-8&&z<6&&z>-4)continue;tree(x,z,.085+random()*.14);}
   return mesh(art.v);
@@ -1272,11 +1314,13 @@ function holdButton(id,fn){
 }
 holdButton('boostBtn',v=>touchBoost=v);
 const releaseClimb=holdButton('upBtn',v=>touchClimb=v),releaseDescend=holdButton('downBtn',v=>touchDescend=v);
+const pitchToggle=$('pitchToggle');
 function syncPitchControl(){
-  const toggle=$('pitchToggle'),hint=reversedPitch?'下拉爬升':'上推爬升';
-  toggle.textContent=reversedPitch?'俯仰：反向':'俯仰：标准';
-  toggle.setAttribute('aria-pressed',String(reversedPitch));
-  toggle.setAttribute('aria-label',toggle.textContent+'，'+hint+'，点按切换');
+  const hint=reversedPitch?'下拉爬升':'上推爬升';
+  $('pitchMode').textContent=reversedPitch?'俯仰：反向':'俯仰：标准';
+  $('pitchHint').textContent=hint;
+  pitchToggle.setAttribute('aria-pressed',String(reversedPitch));
+  pitchToggle.setAttribute('aria-label',$('pitchMode').textContent+'，'+hint+'，点按切换');
   document.body.classList.toggle('pitchReversed',reversedPitch);
   $('stickLabel').textContent=mode===0?'方向 / 北向上':hint;
   $('stick').setAttribute('aria-label',mode===0?'航向摇杆，上方为北':'飞行摇杆，左右转向，'+hint);
@@ -1287,17 +1331,65 @@ function flipTouchPitch(){
   try{localStorage.setItem(pitchPreferenceKey,reversedPitch?'1':'0');}catch{}
   input();
 }
-const pitchToggle=$('pitchToggle');
-let lastPitchTouch=-Infinity;
-pitchToggle.addEventListener('pointerup',e=>{
-  if(e.pointerType!=='touch')return;
-  const r=pitchToggle.getBoundingClientRect();
-  if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)return;
-  // Touch clicks may be omitted for a second finger while another control is held.
-  lastPitchTouch=performance.now();flipTouchPitch();
+const portraitControls=matchMedia('(orientation:portrait)');
+let pitchFinger=null,completedPitchTap=null;
+function placePitchControl(){
+  const host=portraitControls.matches?$('flightActions'):$('touchToolbar');
+  if(pitchToggle.parentElement===host)return;
+  pitchFinger=null;completedPitchTap=null;
+  if(portraitControls.matches)host.append(pitchToggle);
+  else host.insertBefore(pitchToggle,$('pauseBtn'));
+}
+if(portraitControls.addEventListener)portraitControls.addEventListener('change',placePitchControl);
+else portraitControls.addListener(placePitchControl);
+placePitchControl();
+function finishPitchContact(x,y){
+  pitchFinger=null;
+  completedPitchTap={x,y,at:performance.now()};
+  const r=pitchToggle.getBoundingClientRect(),slop=5;
+  if(x>=r.left-slop&&x<=r.right+slop&&y>=r.top-slop&&y<=r.bottom+slop)flipTouchPitch();
+}
+// Some touch screens expose Pointer Events without Touch Events.
+const usePitchPointer=!!window.PointerEvent&&!('ontouchstart' in window);
+pitchToggle.addEventListener('pointerdown',e=>{
+  if(e.pointerType!=='touch'){completedPitchTap=null;return;}
+  if(usePitchPointer&&pitchFinger===null){
+    pitchFinger=e.pointerId;completedPitchTap=null;
+    try{pitchToggle.setPointerCapture(e.pointerId);}catch{}
+  }
+});
+if(usePitchPointer){
+  pitchToggle.addEventListener('pointerup',e=>{
+    if(e.pointerType==='touch'&&e.pointerId===pitchFinger)finishPitchContact(e.clientX,e.clientY);
+  });
+  for(const type of ['pointercancel','lostpointercapture'])pitchToggle.addEventListener(type,e=>{
+    if(e.pointerId===pitchFinger)pitchFinger=null;
+  });
+}else{
+  pitchToggle.addEventListener('touchstart',e=>{
+    if(pitchFinger===null&&e.changedTouches.length){
+      pitchFinger=e.changedTouches[0].identifier;completedPitchTap=null;
+    }
+  },{passive:true});
+  pitchToggle.addEventListener('touchcancel',e=>{
+    if(Array.from(e.changedTouches).some(t=>t.identifier===pitchFinger))pitchFinger=null;
+  },{passive:true});
+  pitchToggle.addEventListener('touchend',e=>{
+    const t=Array.from(e.changedTouches).find(t=>t.identifier===pitchFinger);
+    if(!t)return;
+    if(e.cancelable)e.preventDefault();
+    finishPitchContact(t.clientX,t.clientY);
+  },{passive:false});
+}
+pitchToggle.addEventListener('keydown',e=>{
+  completedPitchTap=null;
+  if(e.key===' '||e.key==='Enter')e.stopPropagation();
 });
 pitchToggle.addEventListener('click',e=>{
-  if(e.pointerType==='touch'||(!e.pointerType&&e.detail>0&&performance.now()-lastPitchTouch<650))return;
+  const tap=completedPitchTap;completedPitchTap=null;
+  // Some webviews emit a mouse-like click after a handled touch even with detail zero.
+  // Only discard an echo from the same spot. A click delivered on its own always activates.
+  if(tap&&performance.now()-tap.at<750&&Math.hypot(e.clientX-tap.x,e.clientY-tap.y)<12)return;
   flipTouchPitch();
 });
 syncPitchControl();
@@ -1316,7 +1408,7 @@ gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParamet
 gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA8,1,1,0,gl.RGBA,gl.UNSIGNED_BYTE,new Uint8Array([0,0,0,255]));
 sceneFB=gl.createFramebuffer();sceneColor=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,sceneColor);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);depthRB=gl.createRenderbuffer();resize();worldMesh=makeWorld();testCarMesh=makeTestCar();skyline=makeSkyline();sunShadowMesh=makeSunShadows();droneMesh=makeDrone();orbMesh=makeOrb();[planeMesh,outlineMesh]=makePlane();dynamicMesh=mesh([],gl.DYNAMIC_DRAW);shadowMesh=mesh([],gl.DYNAMIC_DRAW);cam=cameraTarget(1);ready=true;$('bar').style.width='100%';$('status').textContent=mobile?'世界已就绪 · 建议横屏飞行':'世界已就绪 / READY TO FLY';$('startBattle').disabled=$('start').disabled=false;requestAnimationFrame(loop);}catch(e){console.error(e);$('status').textContent='初始化失败 / '+e.message.slice(0,170);}}
 window.hualongDiagnostics=()=>({
-  version:'1.5',ready,running,paused,mobile,mode,quality,renderSize:[RW,RH],reversedPitch,neighbourhoodBuildings:neighbourhoodBlocks.length,
+  version:'1.5.1',ready,running,paused,mobile,mode,quality,renderSize:[RW,RH],reversedPitch,neighbourhoodBuildings:neighbourhoodBlocks.length,
   combat:battle?{phase:battle.phase,wave:battle.wave,shield:battle.shield,score:battle.score,cleared:battle.cleared,remaining:battle.drones.length}:null,
   base:{...GEO.base},geoChecked:GEO.checked,terrainSpanKm:MAP_SPAN/10,noon:'12:00',sun:[...sun],position:[...pos],speed,
   landmarks:landmarks.map(({id,name,lat,lon,distanceM,bearingDeg,x,z,heightM})=>({id,name,lat,lon,distanceM,bearingDeg,x,z,heightM})),
